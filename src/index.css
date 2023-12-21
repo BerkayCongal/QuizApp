@@ -78,7 +78,8 @@
     width: 410px;
     font-family: var(--ff-rubik);
     
-    & button {
+    & .allbutton {
+        width: 500px;
         display: flex;
         gap: 30px;
         align-items: center;
@@ -86,10 +87,10 @@
         border-radius: 12px;
         padding: 20px 18px;
         border: none;
-        background-color: var(--clr-lightwht);
+        background-color: var(--clr-white);
     }
 
-    & button img {
+    & .allbutton img {
         padding-left: 52px;
     }
         
@@ -120,6 +121,7 @@
     & button img {
         display: none;
     }
+
 }
 
 /* ------------True-Btn------------ */
@@ -177,17 +179,21 @@
     background-color: var(--clr-pink);
 }
 
-.dark {
+body {
+    background-image: url(/src/img/back.svg);
+    background-color: var(--clr-lightwht);
+}
+
+.night {
     width: 300px;
     display: flex;
     gap: 5px;
-    background-color: var(--clr-lightwht);
     justify-content: center;
     padding: 12px;
     border-radius: 12px;
 }
 
-.night {
+.dark {
     width: 300px;
     display: flex;
     gap: 5px;
@@ -195,4 +201,90 @@
     justify-content: center;
     padding: 12px;
     border-radius: 12px;
+}
+
+.container {
+    
+    /* background-image: url("/src/img/back.svg");
+    background-color: var(--clr-lightwht); */
+}
+
+.sections-btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menü-container {
+    
+    & .night {
+        display: flex;
+    width: 94%;
+    justify-content: end;
+    padding-block: 74px;
+    }
+}
+
+.sections-btn {
+     
+    & h2 {
+        font-family: var(--ff-raleway);
+        font-size: 64px;
+        font-weight: 300;
+        font-style: normal;
+        line-height: 100%;
+        color: var(--clr-nav);
+    }
+
+    & h1 {
+        font-family: var(--ff-rubik);
+        font-size: 64px;
+        color: var(--clr-nav);
+
+    }
+
+    & p {
+        margin-block: 30px;
+        color: var(--clr-nav);
+        font-family: var(--ff-rubik);
+        font-style: italic;
+    }
+}
+
+.selected-container {
+   
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ff-rubik);
+    font-size: 22px;
+
+    & button {
+        width: 400px;
+        gap: 32px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        align-items: center;
+        border: 1px solid white;
+        justify-content: flex-start;
+        padding: 18px 20px;
+        border-radius: 12px;
+    }
+
+    & span {
+        
+        text-align: center;
+        padding: 12px;
+        border-radius: 12px;
+    }
+}
+
+
+.html-btn {
+    background-color: #EE5454;
+}
+
+.css-btn {
+    background-color: var(--clr-green);
 }
