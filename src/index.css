@@ -179,28 +179,17 @@
     background-color: var(--clr-pink);
 }
 
-body {
+/* body {
     background-image: url(/src/img/back.svg);
     background-color: var(--clr-lightwht);
 }
-
-.night {
-    width: 300px;
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    padding: 12px;
-    border-radius: 12px;
-}
+ */
 
 .dark {
-    width: 300px;
     display: flex;
-    gap: 5px;
-    background-color: var(--clr-navdrk);
-    justify-content: center;
-    padding: 12px;
-    border-radius: 12px;
+    width: 94%;
+    justify-content: end;
+    padding-block: 74px;
 }
 
 .sections-btn {
@@ -211,7 +200,7 @@ body {
 .menü-container {
     
     & .night {
-        display: flex;
+    display: flex;
     width: 94%;
     justify-content: end;
     padding-block: 74px;
@@ -226,19 +215,19 @@ body {
         font-weight: 300;
         font-style: normal;
         line-height: 100%;
-        color: var(--clr-nav);
+        /* color: var(--clr-nav); */
     }
 
     & h1 {
         font-family: var(--ff-rubik);
         font-size: 64px;
-        color: var(--clr-nav);
+        /* color: var(--clr-nav); */
 
     }
 
     & p {
         margin-block: 30px;
-        color: var(--clr-nav);
+        /* color: var(--clr-nav); */
         font-family: var(--ff-rubik);
         font-style: italic;
     }
@@ -246,7 +235,7 @@ body {
 
 .selected-container {
    
-    gap: 15px;
+    gap: 8px;
     display: flex;
     flex-direction: column;
     font-family: var(--ff-rubik);
@@ -258,7 +247,7 @@ body {
         border: none;
         display: flex;
         justify-content: center;
-        background-color: white;
+        background-color: var(--clr-lightwht);
         align-items: center;
         border: 1px solid white;
         justify-content: flex-start;
@@ -289,4 +278,31 @@ body {
 
 .acces-btn {
     background-color: hsla(277, 100%, 95%, 1);
+}
+
+
+@media (width < 631px) {
+    
+    .sections-btn {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+.container {
+    background-image: url(/src/img/darkbackimg.svg);
+    height: 100vh;
+}
+
+
+.selected-container {
+    & button {
+        border: none;
+    }
+}
+
+.slc-btn {
+    background-color: #F4F6FA;
 }
