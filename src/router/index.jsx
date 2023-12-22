@@ -7,7 +7,7 @@ export  const supabase = createClient("https://yvwzfokjdgcyvyikzzen.supabase.co"
 export const router = createBrowserRouter([
     {
         path:"/",
-        element:<Home/>
+        element:<Menü/>
     },
     {
         path:"/system",

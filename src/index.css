@@ -203,12 +203,6 @@ body {
     border-radius: 12px;
 }
 
-.container {
-    
-    /* background-image: url("/src/img/back.svg");
-    background-color: var(--clr-lightwht); */
-}
-
 .sections-btn {
     display: flex;
     justify-content: space-around;
@@ -252,14 +246,14 @@ body {
 
 .selected-container {
    
-    gap: 30px;
+    gap: 15px;
     display: flex;
     flex-direction: column;
     font-family: var(--ff-rubik);
     font-size: 22px;
 
     & button {
-        width: 400px;
+        width: 481px;
         gap: 32px;
         border: none;
         display: flex;
@@ -282,9 +276,17 @@ body {
 
 
 .html-btn {
-    background-color: #EE5454;
+    background-color: hsla(22, 100%, 96%, 1);
 }
 
 .css-btn {
-    background-color: var(--clr-green);
+    background-color: hsla(151, 87%, 94%, 1);
+}
+
+.js-btn {
+    background-color: hsla(223, 100%, 96%, 1);
+}
+
+.acces-btn {
+    background-color: hsla(277, 100%, 95%, 1);
 }
