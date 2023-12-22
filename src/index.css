@@ -49,19 +49,21 @@
 .system-main {
     display: flex;
     flex-direction: column;
+    margin-block: 40px;
     gap: 39px;
 }
 
 .btn {
-    /* width: 55%; */
-    width: 547px;
+
+    width: 500px;
     font-family: var(--ff-rubik);
     font-size: 22px;
    background-color: var(--clr-pink);
+   line-height: 100%;
    color: var(--clr-white);
    padding: 32px;
    border: none;
-   border-radius: 12px;
+   border-radius: 24px;
     
    &:hover{
     background-color: #c380ec;
@@ -75,7 +77,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    width: 410px;
+    /* width: 410px; */
     font-family: var(--ff-rubik);
     
     & .allbutton {
@@ -110,7 +112,7 @@
     }
 
     & :active {
-        border: 3px solid var(--clr-pink);
+        border: 1px solid var(--clr-pink);
     
         & span {
             background-color: var(--clr-pink);
@@ -179,17 +181,20 @@
     background-color: var(--clr-pink);
 }
 
-/* body {
-    background-image: url(/src/img/back.svg);
-    background-color: var(--clr-lightwht);
-}
- */
+ .night {
+    display: flex;
+    width: 80%;
+    justify-content: end;
+    padding-block: 74px;
+    margin: auto;
+ }
 
 .dark {
     display: flex;
-    width: 94%;
+    width: 80%;
     justify-content: end;
     padding-block: 74px;
+    margin: auto;
 }
 
 .sections-btn {
@@ -201,9 +206,10 @@
     
     & .night {
     display: flex;
-    width: 94%;
+    width: 80%;
     justify-content: end;
     padding-block: 74px;
+    margin: auto;
     }
 }
 
@@ -294,6 +300,8 @@
 .container {
     background-image: url(/src/img/darkbackimg.svg);
     height: 100vh;
+    background-color: var(--clr-lightwht);
+    
 }
 
 
@@ -305,4 +313,31 @@
 
 .slc-btn {
     background-color: #F4F6FA;
+}
+
+.dark-night {
+    display: flex;
+    align-items: center;
+}
+
+.Accesibility {
+     
+    & h1  {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        font-family: var(--ff-rubik);
+    }
+    
+
+    & img {
+        background: #F6E7FF;
+        padding: 3px;
+        border-radius: 9px;
+    }
+}
+
+.quiz-question {
+    width: 400px;
 }

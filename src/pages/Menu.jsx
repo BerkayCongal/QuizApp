@@ -30,12 +30,6 @@ export default function Menu() {
                         <button className='slc-btn' onClick={()=> (window.location = "/Js")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='js-btn'><img src="/src/img/Js.svg" alt="" /></span>Javascript</button>
                         <button className='slc-btn' onClick={()=>(window.location = "/Accessibility")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='acces-btn'><img src="/src/img/accesibility.svg" alt=""/></span>Accessibility</button>
                     </div>
-                    {/* <div className="seletions">
-                        <button className="allbutton"><span>A</span>Selection Idble <img  src="/src/img/True.svg" alt="" /></button>
-                        <button className="allbutton"><span>A</span>Selection Idble <img  src="/src/img/False.svg" alt="" /></button>
-                        <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-                        <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-                    </div> */}
                 </div>
             </div>
         </div>
