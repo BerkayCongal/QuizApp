@@ -339,5 +339,62 @@
 }
 
 .quiz-question {
-    width: 400px;
+    width: 470px;
+}
+
+.quiz-css {
+    & h1  {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        font-family: var(--ff-rubik);
+    }
+    
+
+    & img {
+        background-color: hsla(151, 87%, 94%, 1);
+        padding: 3px;
+        border-radius: 9px;
+    }
+}
+
+.quiz-js {
+    & h1  {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        font-family: var(--ff-rubik);
+    }
+    
+
+    & img {
+        background-color: hsla(223, 100%, 96%, 1);
+        padding: 3px;
+        border-radius: 9px;
+    }
+}
+
+.quiz-html {
+    & h1  {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        font-family: var(--ff-rubik);
+    }
+    
+
+    & img {
+        background-color: hsla(22, 100%, 96%, 1);
+        padding: 3px;
+        border-radius: 9px;
+    }
+}
+
+
+body {
+    background-color: #26D782;
+    height: 100vh;
 }
