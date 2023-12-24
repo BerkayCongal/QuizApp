@@ -4,10 +4,10 @@ const htmlList = [
 
     cevap: 
         {
-            a: "Hyper Text Man Large",
-            b: "Hiper Told Many Long",
-            c: "Hyper Text Markup Language",
-            d: "Hiper Take Markup Length"
+            a: ["Hyper Text Man Large" , false],
+            b: ["Hiper Told Many Long", false],
+            c: ["Hyper Text Markup Language",  true],
+            d: ["Hiper Take Markup Length", false]
     }
     
  },
@@ -15,10 +15,10 @@ const htmlList = [
     soru: "2- Hangi Etiket daha büyüktür ?",
 
     cevap: {
-        a: "h1",
-        b: "h2",
-        c: "h3",
-        d: "h4"
+        a: ["h1", true],
+        b: ["h2", false],
+        c: ["h3", false],
+        d: ["h4", false],
 
     }
  },

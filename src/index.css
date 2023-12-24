@@ -77,7 +77,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    /* width: 410px; */
     font-family: var(--ff-rubik);
     
     & .allbutton {
@@ -124,7 +123,6 @@
     & button img {
         display: none;
     }
-
 }
 
 /* ------------True-Btn------------ */
@@ -143,7 +141,6 @@
         border: 3px solid var(--clr-green);
     }
 }
-
 
 .seletions > [aria-selected="true"]:hover {
     & span {
@@ -267,7 +264,6 @@
     }
 }
 
-
 .html-btn {
     background-color: hsla(22, 100%, 96%, 1);
 }
@@ -294,14 +290,11 @@
     }
 }
 
-
 .container {
     background-image: url(/src/img/darkbackimg.svg);
     height: 100vh;
-    background-color: var(--clr-lightwht);
-    
+    background-color: var(--clr-lightwht);  
 }
-
 
 .selected-container {
     & button {
@@ -390,7 +383,6 @@
         border-radius: 9px;
     }
 }
-
 
 .quiz-score {
     text-align: center;

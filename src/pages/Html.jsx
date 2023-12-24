@@ -1,31 +1,94 @@
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Darknight from '../components/Darknight';
 import htmlList from "../components/dataHtml";
+import System from "./Desingsystem";
 
 export default function Html(){
-    const  [panel,setPanel ] = useState(false);
+    const [panel,setPanel ] = useState(false);
+    const [question, setQuestion] = useState(0)
+    const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
+    
+    // a[0] = title,
+    // a[1] = true, false
 
+    const clickEvent = (e,id) => {
+        const newArray = [...arialSelect];
+        newArray[id] = e.target.dataset.value === "true";
+        setarialSelect(newArray);
+    }
 
-    let soru = 0;
-   
-    const htmlQuiz = htmlList.map((x,i) => {
-        if(i !== 0 ) return
+    useEffect(() => {
+        setarialSelect([null, null, null,  null]);
+    }, [question]);
+
+    function questionHandle() {
+        localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
+        if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        if (arialSelect.every(val => val === null)) return
+
+        setQuestion(function(prev) {
+            return prev + 1
+        })
+    }
+
+    console.log(question);
+
+    console.log(arialSelect);
+
+    if (question === htmlList.length) return <System trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+
+    const htmlQuiz = htmlList.map((x, i) => {
+        if(i !== question ) return
         return(
-          <>
+          <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
-                <p> Soru : {soru} / 9</p>
+                <p> Soru : {question + 1} / 9</p>
                        <h3> {x.soru}</h3>
                 </div>
                 <div className="seletions">
-                    <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
-                    <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>B</span>{x.cevap.b} <img  src="/src/img/False.svg" alt="" /></button>
-                    <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>C</span>{x.cevap.c}<img src="/src/img/False.svg" alt="" /></button>
-                    <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>D</span>{x.cevap.d} <img src="/src/img/False.svg" alt="" /></button>
+                    <button  className="allbutton" 
+                        onClick={(e)=>clickEvent(e,0)}
+                        aria-selected={arialSelect[0]}  
+                        data-value={x.cevap.a[1]}  
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <span>A</span>
+                        {x.cevap.a} {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                    </button>
+
+                    <button className="allbutton"
+                        onClick={(e)=>clickEvent(e,1)} 
+                        aria-selected={arialSelect[1]} 
+                        data-value={x.cevap.b[1]}  
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <span>B</span>
+                        {x.cevap.b}  {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                    </button>
+
+                    <button className="allbutton"
+                        onClick={(e)=>clickEvent(e,2)} 
+                        aria-selected={arialSelect[2]} 
+                        data-value={x.cevap.c[1]} 
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <span>C</span>
+                        {x.cevap.c} {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                    </button>
+
+                    <button className="allbutton" 
+                        onClick={(e)=>clickEvent(e,3)} 
+                        aria-selected={arialSelect[3]} 
+                        data-value={x.cevap.d[1]}  
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}
+                        ><span>D</span>
+                        {x.cevap.d}  {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                    </button>
+
                 <div className="system">
-                    <button className="btn">Devam</button>
+                    <button className="btn" onClick={questionHandle}>
+                        devam
+                    </button>
                 </div>
             </div>
-          </>
+          </React.Fragment>
         
         )
     })

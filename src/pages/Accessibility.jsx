@@ -5,7 +5,7 @@ import dataAcces from "../components/Accesdata";
 export default function Accessibility() {
     const  [panel,setPanel ] = useState(false)
 
-    let soru = 0;
+    let soru =2;
     const accesQuiz = dataAcces.map((x,i)=> {
         if(i !== soru) return;
         
@@ -16,7 +16,7 @@ export default function Accessibility() {
                         <p>{x.soru}</p>
                     </div>
                     <div className="seletions">
-                        <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
+                        <button className="allbutton"  style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
                         <button className="allbutton"  style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>B</span>{x.cevap.b} <img  src="/src/img/False.svg" alt="" /></button>
                         <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>C</span>{x.cevap.c} <img src="/src/img/False.svg" alt="" /></button>
                         <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>D</span>{x.cevap.d}<img src="/src/img/False.svg" alt="" /></button>

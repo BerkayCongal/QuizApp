@@ -1,8 +1,11 @@
 import React from 'react';
 import Darknight from '../components/Darknight';
 import { useState } from 'react';
-export default function System() {
+import { Link } from 'react-router-dom';
+export default function System({trueNumber, setQuestion}) {
     const  [panel,setPanel ] = useState(false)
+
+
 
     function drknghPanel() {
         setPanel(!panel)
@@ -21,7 +24,6 @@ export default function System() {
                 <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
                 <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
             </div>
-            
 
             <div className='dark'>
                 <img src="/src/img/Suun.svg" alt="" />
@@ -55,11 +57,14 @@ export default function System() {
                         <h1 className='quiz-finish'>Sonucunuz...</h1>
                         </div>
                         <div className='quiz'>
-                        <h2 className='quiz-html' > <img src="/src/img/Html.svg" alt="" />HTML</h2>
-                        <h1>8</h1>
-                        <p>10 / 8 tane bildiginiz</p>
+                        <h2 className='quiz-html' > <img src={`/src/img${location.pathname}.svg`} alt="" />HTML</h2>
+                        <h1>{trueNumber}</h1>
+                        <p>10 / {trueNumber} tane bildiginiz</p>
                         </div>
-                        <button className="btn"> Tekrar Oyna</button>
+                        <Link href="/Html" onClick={() => {
+                            localStorage.trueQuestionsNumber = 0
+                            setQuestion(0)
+                        }} className="btn"> Tekrar Oyna</Link>
                     </div>
                 </div>
             </div>
