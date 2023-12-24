@@ -1,7 +1,12 @@
 import React from 'react';
-import { Switch } from 'antd';
 import Darknight from '../components/Darknight';
+import { useState } from 'react';
 export default function System() {
+    const  [panel,setPanel ] = useState(false)
+
+    function drknghPanel() {
+        setPanel(!panel)
+    }
  
     return (
         <div className="system-main">
@@ -29,6 +34,31 @@ export default function System() {
                 <img src="/src/img/Suun.svg" alt="" />
             <Darknight/>
             <img src="/src/img/Moon.svg" alt="" />
+            </div>
+            
+        <div className='quiz-soon'>
+            <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+                <div className='menü-container'>
+                    <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
+                        <div className="quiz-html">
+                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/Html.svg" alt="" />HTML</h1>
+                        </div> 
+                        <div className="dark-night">
+                            <img src="/src/img/Suun.svg" alt="" />
+                                <Darknight onChange={() => drknghPanel()}/>
+                                <img src="/src/img/Moon.svg" alt="" />
+                        </div>
+                    </div>
+                    <div className='quiz-score'>
+                        <div className='quiz'>
+                        <h2 className='quiz-html' > <img src="/src/img/Html.svg" alt="" />HTML</h2>
+                        <h1>8</h1>
+                        <p>10 / 8 tane bildiginiz</p>
+                        </div>
+                        <button className="btn"> Tekrar Oyna</button>
+                    </div>
+                </div>
+            </div>
             </div>
 
         </div>

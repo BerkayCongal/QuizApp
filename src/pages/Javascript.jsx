@@ -22,7 +22,7 @@ export default function Javascript() {
                     <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>C</span>{x.cevap.c} <img src="/src/img/False.svg" alt="" /></button>
                     <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>D</span>{x.cevap.d} <img src="/src/img/False.svg" alt="" /></button>
                     <div className="system">
-                    <button className="btn">Button Hover</button>
+                    <button className="btn">Devam</button>
                     </div>
                     {/* aria-selected="false" */}
                 </div>

@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
 import System from "../pages/Desingsystem";
 import Menu from "../pages/Menu";
 import { createClient } from "@supabase/supabase-js";
@@ -18,11 +17,6 @@ export const router = createBrowserRouter([
         element: <System/>
     },
     {
-        path:"/menü",
-        element:<Menu/>
-
-    },
-    {
         path:"/html",
         element:<Html/>
     },
@@ -32,7 +26,7 @@ export const router = createBrowserRouter([
 
     },
     {
-        path:"/Js",
+        path:"/Javascript",
         element:<Javascript/>
     },
     {
