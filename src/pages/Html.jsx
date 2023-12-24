@@ -1,25 +1,28 @@
 import { useState } from "react"
 import Darknight from '../components/Darknight';
-import htmlList from "../components/Html";
+import htmlList from "../components/dataHtml";
 
 export default function Html(){
     const  [panel,setPanel ] = useState(false);
 
+
     let soru = 0;
+   
     const htmlQuiz = htmlList.map((x,i) => {
-        if(i !== soru ) return
+        if(i !== 0 ) return
         return(
           <>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
+                <p> Soru : {soru} / 9</p>
                        <h3> {x.soru}</h3>
                 </div>
                 <div className="seletions">
-                    <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
+                    <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
                     <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>B</span>{x.cevap.b} <img  src="/src/img/False.svg" alt="" /></button>
                     <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>C</span>{x.cevap.c}<img src="/src/img/False.svg" alt="" /></button>
                     <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>D</span>{x.cevap.d} <img src="/src/img/False.svg" alt="" /></button>
                 <div className="system">
-                    <button className="btn">Button Hover</button>
+                    <button className="btn">X</button>
                 </div>
             </div>
           </>

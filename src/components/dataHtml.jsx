@@ -92,24 +92,7 @@ const htmlList = [
         d:"pass"
     }
  }
-
-
-    
-
+ 
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default htmlList;

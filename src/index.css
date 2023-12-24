@@ -90,6 +90,7 @@
         padding: 20px 18px;
         border: none;
         background-color: var(--clr-white);
+        /* border: 3px solid white; */
     }
 
     & .allbutton img {
@@ -111,7 +112,7 @@
         color: var(--clr-pink);
     }
 
-    & :active {
+    & button:active {
         border: 1px solid var(--clr-pink);
     
         & span {
@@ -394,7 +395,3 @@
 }
 
 
-body {
-    background-color: #26D782;
-    height: 100vh;
-}

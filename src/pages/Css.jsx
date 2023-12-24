@@ -1,12 +1,39 @@
 import { useState } from "react"
 import Darknight from '../components/Darknight';
+import CssList from "../components/datacss";
 
 export default function Css() {
     const  [panel,setPanel ] = useState(false);
 
+    let soru = 0;
+
+    const cssQuiz = CssList.map((x,i)=> {
+        if(i !== soru ) return; 
+        return (
+            <>
+              <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
+                            <p>Soru: {soru} / 10</p>
+                            <p>{x.soru}</p>
+                    </div>
+                    <div className="seletions">
+                        <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>{x.cevap.a} <img  src="/src/img/True.svg" alt="" /></button>
+                        <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>B</span>{x.cevap.b} <img  src="/src/img/False.svg" alt="" /></button>
+                        <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>C</span>{x.cevap.c} <img src="/src/img/False.svg" alt="" /></button>
+                        <button className="allbutton" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>D</span>{x.cevap.d} <img src="/src/img/False.svg" alt="" /></button>
+                        <div className="system">
+                        <button className="btn">Button Hover</button>
+                        </div>
+                    </div>
+            </>
+        )
+    })
+
+
+
     function drknghPanel() {
         setPanel(!panel)
     }
+   
     return(
         <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
             <div className='menü-container'>
@@ -21,21 +48,7 @@ export default function Css() {
                        </div>
                 </div>
                 <div className='sections-btn'>
-                    <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, natus neque facere eius ea, voluptas reprehenderit voluptatum excepturi sint harum vel sunt? Quia amet dolor delectus omnis quasi deserunt rerum, corrupti quam consequuntur inventore nihil error, odio iure architecto in, excepturi quidem repudiandae maxime obcaecati praesentium? Magnam quas explicabo ullam.
-                        </p>
-                    </div>
-                    <div className="seletions">
-                        <button className="allbutton" aria-selected="true" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>Selection Idble <img  src="/src/img/True.svg" alt="" /></button>
-                        <button className="allbutton" aria-selected="false" style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>Selection Idble <img  src="/src/img/False.svg" alt="" /></button>
-                        <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-                        <button className="allbutton"style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}} ><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-                        <div className="system">
-                        <button className="btn">Button Hover</button>
-                        </div>
-                    </div>
-                    
+                        {cssQuiz}
                 </div>
             </div>
         </div>
