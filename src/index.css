@@ -222,14 +222,11 @@
         font-weight: 300;
         font-style: normal;
         line-height: 100%;
-        /* color: var(--clr-nav); */
     }
 
     & h1 {
         font-family: var(--ff-rubik);
         font-size: 64px;
-        /* color: var(--clr-nav); */
-
     }
 
     & p {
@@ -431,6 +428,30 @@
 
     & h1 {
         font-size: 144px;
+        font-family: var(--ff-rubik);
+        color: var(--clr-navdrk);
+    }
+}
+
+.quiz-title {
+    text-align: start;
+    width: 100%;
+    padding-inline: 30px;
+    
+    & .quiz-clp{
+        
+        font-family: var(--ff-raleway);
+        font-size: 64px;
+        font-weight: 300;
+        font-style: normal;
+        line-height: 100%;
+        color: var(--clr-navdrk);
+    }
+
+    & .quiz-finish {
+        font-size: 64px;
+        line-height: 100%;
+        font-weight: 300;
         font-family: var(--ff-rubik);
         color: var(--clr-navdrk);
     }

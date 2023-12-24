@@ -50,6 +50,10 @@ export default function System() {
                         </div>
                     </div>
                     <div className='quiz-score'>
+                        <div className='quiz-title'style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}} >
+                        <h1 className='quiz-clp'>Quiz Tamamlandı</h1>
+                        <h1 className='quiz-finish'>Sonucunuz...</h1>
+                        </div>
                         <div className='quiz'>
                         <h2 className='quiz-html' > <img src="/src/img/Html.svg" alt="" />HTML</h2>
                         <h1>8</h1>
