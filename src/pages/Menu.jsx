@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Darknight from '../components/Darknight';
 
 
 export default function Menu() {
     const  [panel,setPanel ] = useState(false)
+
+
+    useEffect(()=>{
+        localStorage.trueQuestionsNumber = 0
+    },[])
 
     function drknghPanel() {
         setPanel(!panel)
@@ -27,7 +32,7 @@ export default function Menu() {
                     <div className='selected-container'> 
                         <button className='slc-btn' onClick={()=>(window.location = "/Html")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='html-btn'><img src="/src/img/Html.svg" alt="" /></span>HTML</button>
                         <button className='slc-btn' onClick={()=>(window.location = "/Css")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='css-btn'><img src="/src/img/css.svg" alt="" /></span>CSS</button>
-                        <button className='slc-btn' onClick={()=> (window.location = "/Javascript")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='js-btn'><img src="/src/img/Js.svg" alt="" /></span>Javascript</button>
+                        <button className='slc-btn' onClick={()=> (window.location = "/Javascript")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='js-btn'><img src="/src/img/Javascript.svg" alt="" /></span>Javascript</button>
                         <button className='slc-btn' onClick={()=>(window.location = "/Accessibility")} style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}><span className='acces-btn'><img src="/src/img/accesibility.svg" alt=""/></span>Accessibility</button>
                     </div>
                 </div>

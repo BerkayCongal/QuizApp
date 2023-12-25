@@ -19,6 +19,7 @@ export default function Html(){
 
     useEffect(() => {
         setarialSelect([null, null, null,  null]);
+        location.trueQuestionsNumber = 0
     }, [question]);
 
     function questionHandle() {
@@ -35,7 +36,7 @@ export default function Html(){
 
     console.log(arialSelect);
 
-    if (question === htmlList.length) return <Scoremenu trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === htmlList.length) return <Scoremenu whichQuiz={"Html"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
 
     const htmlQuiz = htmlList.map((x, i) => {
         if(i !== question ) return
@@ -51,7 +52,7 @@ export default function Html(){
                         aria-selected={arialSelect[0]}  
                         data-value={x.cevap.a[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span>A</span>
+                        <span data-value={x.cevap.a[1]}>A</span>
                         {x.cevap.a} {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
@@ -60,7 +61,7 @@ export default function Html(){
                         aria-selected={arialSelect[1]} 
                         data-value={x.cevap.b[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span>B</span>
+                        <span data-value={x.cevap.b[1]}>B</span>
                         {x.cevap.b}  {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
@@ -69,7 +70,7 @@ export default function Html(){
                         aria-selected={arialSelect[2]} 
                         data-value={x.cevap.c[1]} 
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span>C</span>
+                        <span data-value={x.cevap.c[1]}>C</span>
                         {x.cevap.c} {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
@@ -78,7 +79,7 @@ export default function Html(){
                         aria-selected={arialSelect[3]} 
                         data-value={x.cevap.d[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}
-                        ><span>D</span>
+                        ><span data-value={x.cevap.d[1]}>D</span>
                         {x.cevap.d}  {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 

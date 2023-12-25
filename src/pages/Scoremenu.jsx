@@ -3,7 +3,7 @@ import Darknight from '../components/Darknight';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Scoremenu({trueNumber, setQuestion}) {
+export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
     const  [panel,setPanel ] = useState(false)
 
     function drknghPanel() {
@@ -17,7 +17,7 @@ export default function Scoremenu({trueNumber, setQuestion}) {
                 <div className='menü-container'>
                     <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
                         <div className="quiz-html">
-                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/Html.svg" alt="" />HTML</h1>
+                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src={`/src/img/${whichQuiz}.svg`} alt="" />{whichQuiz}</h1>
                         </div> 
                         <div className="dark-night">
                             <img src="/src/img/Suun.svg" alt="" />
@@ -31,7 +31,7 @@ export default function Scoremenu({trueNumber, setQuestion}) {
                         <h1 className='quiz-finish'>Sonucunuz...</h1>
                         </div>
                         <div className='quiz'>
-                        <h2 className='quiz-html' > <img src={`/src/img${location.pathname}.svg`} alt="" />HTML</h2>
+                        <h2 className='quiz-html' > <img src={`/src/img/${whichQuiz}.svg`} alt="" />{whichQuiz}</h2>
                         <h1>{trueNumber}</h1>
                         <p>10 / {trueNumber} tane bildiginiz</p>
                         </div>
@@ -41,7 +41,9 @@ export default function Scoremenu({trueNumber, setQuestion}) {
                             localStorage.trueQuestionsNumber = 0
                             setQuestion(0)
                         }} className="btn" style={{width: "300px"}}> Tekrar Oyna</Link>
-                        <Link to={"/"} className='btn' style={{width: "300px"}}>Anasayfaya dön</Link>
+                        <Link to={"/"} className='btn' style={{width: "300px"}}>
+                            Anasayfaya dön
+                        </Link>
                        </div>
                 </div>
             </div>
