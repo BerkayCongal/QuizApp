@@ -64,6 +64,7 @@
    padding: 32px;
    border: none;
    border-radius: 24px;
+   text-decoration: none;
     
    &:hover{
     background-color: #c380ec;
@@ -447,4 +448,26 @@
         font-family: var(--ff-rubik);
         color: var(--clr-navdrk);
     }
+}
+
+.btn-try {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 35px;
+    text-decoration: none;
+    margin-bottom: 10px;
+ 
+}
+
+@media (width < 631px) {
+    
+   .btn-try {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+   }
 }

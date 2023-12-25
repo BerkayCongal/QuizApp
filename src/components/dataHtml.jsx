@@ -2,8 +2,7 @@ const htmlList = [
  {
     soru: "1- HTML Açlımı nedir ?",
 
-    cevap: 
-        {
+    cevap:{
             a: ["Hyper Text Man Large" , false],
             b: ["Hiper Told Many Long", false],
             c: ["Hyper Text Markup Language",  true],
@@ -26,20 +25,20 @@ const htmlList = [
     soru: "3- HTML etiketlerinin hireyarşik yapısı sırasıyla nedir ?",
 
     cevap: {
-        a: "HTML -> Head -> Body",
-        b: "HTML -> Body -> Head",
-        c: "Body -> HTML -> Head",
-        d: "Head -> Body -> HTML"
+        a: ["HTML -> Head -> Body", true],
+        b:[ "HTML -> Body -> Head", false],
+        c: ["Body -> HTML -> Head", false],
+        d: ["Head -> Body -> HTML", false]
     }
  },
  {
     soru: "4- Aşağıdakilerden hangisi Blok Türündeki Elementlerden biri değildir ?",
      
     cevap: {
-        a: "span",
-        b: "from",
-        c: "footer",
-        d: "Atak helikopteri :)",
+        a: ["span", true],
+        b: ["from", false],
+        c: ["footer", false],
+        d: ["Atak helikopteri :)", false],
     }
 
  },
@@ -47,49 +46,49 @@ const htmlList = [
      soru: "5- Html’de bir alt satıra geçmek için hangi html etiketi kullanılır ?",
 
      cevap: {
-        a: "<br>",
-        b: "<lb>",
-        c: "break",
-        d: "newline",
+        a: ["<br>", true],
+        b: ["<lb>", false],
+        c: ["break", false],
+        d: ["newline", false]
     }
  },
  {
     soru: "6- Sırasız bir liste (unordered list) oluşturmak için hangi etiketi kullanmalısınız?",
     cevap: {
-        a: "<ul>",
-        b: "<ol>",
-        c: "<li>",
-        d: "<list>"
+        a: ["<ul>", true],
+        b: ["<ol>", false],
+        c: ["<li>", false],
+        d: ["<list>", false]
     }
  },
  {
     soru: "7- Kullanıcıdan metin girişi almak için kullanılan HTML etiketi nedir?",
 
     cevap: {
-        a: "input",
-        b: "textinput",
-        c: "textbox",
-        d: "formtext"
+        a: ["input", true],
+        b: ["textinput", false],
+        c: ["textbox", false],
+        d: ["formtext", false]
     },
 
  },
  {
     soru: " 8-Bir resmi sayfaya eklemek için hangi HTML etiketi kullanılır?",
     cevap: {
-        a: "<img>",
-        b: "picture",
-        c: "<image",
-        d: "<src>",
+        a: ["<img>", true],
+        b: ["picture", false],
+        c: ["<image", false],
+        d: ["<src>", false]
     }
  },
  {
     soru: "9- Kullanıcının bir şifre girmesini sağlamak için kullanılan HTML etiketi nedir?",
 
     cevap: {
-        a:"<password>",
-        b: "<secure>",
-        c: "<input type=password >",
-        d:"pass"
+        a:["<password>", false],
+        b: ["<secure>", false],
+        c: ["<input type=password >", true],
+        d:["pass", false,]
     }
  }
  

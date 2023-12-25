@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Darknight from '../components/Darknight';
 import htmlList from "../components/dataHtml";
-import System from "./Desingsystem";
+import Scoremenu from "./Scoremenu";
 
 export default function Html(){
     const [panel,setPanel ] = useState(false);
@@ -35,15 +35,15 @@ export default function Html(){
 
     console.log(arialSelect);
 
-    if (question === htmlList.length) return <System trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === htmlList.length) return <Scoremenu trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
 
     const htmlQuiz = htmlList.map((x, i) => {
         if(i !== question ) return
         return(
           <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
-                <p> Soru : {question + 1} / 9</p>
-                       <h3> {x.soru}</h3>
+                    <p> Soru : {question + 1} / 9</p>
+                    <h3> {x.soru}</h3>
                 </div>
                 <div className="seletions">
                     <button  className="allbutton" 
@@ -84,7 +84,7 @@ export default function Html(){
 
                 <div className="system">
                     <button className="btn" onClick={questionHandle}>
-                        devam
+                        Devam
                     </button>
                 </div>
             </div>
@@ -110,7 +110,7 @@ export default function Html(){
                        </div>
                 </div>
                 <div className='sections-btn'>
-                        {htmlQuiz}
+                    {htmlQuiz}
                 </div>
             </div>
         </div>

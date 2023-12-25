@@ -3,20 +3,20 @@ const CssList = [
         soru: "1. Hangi CSS özelliği, bir elementin içerdiği içeriği düzenler ve hizalar?",
 
         cevap: {
-            a: "margin",
-            b: "padding",
-            c: "display",
-            d: "text-align"
+            a: ["margin", false],
+            b: ["padding", false],
+            c: ["display", true],
+            d: ["text-align",false],
         }
     },
     {
         soru:"2. -em- birimini kullanmanın başlıca avantajı nedir?",
 
         cevap: {
-            a:"A) Piksel cinsinden daha hassas olması",
-            b: "Yüzde cinsinden daha esnek olması",
-            c: "Kullanımının daha basit olması",
-            d: "Tarayıcı uyumluluğunun daha yüksek olması",
+            a:["Piksel cinsinden daha hassas olması", false],
+            b: ["Yüzde cinsinden daha esnek olması", true],
+            c: ["Kullanımının daha basit olması", false],
+            d: ["Tarayıcı uyumluluğunun daha yüksek olması", false]
         }
     },
     {
@@ -24,40 +24,40 @@ const CssList = [
 
         cevap: 
         {
-            a: "Renk tonunu belirler",
-            b: "Elementin konumunu belirler",
-            c: "Font boyutunu belirler",
-            d: "Animasyon hızını belirler",
+            a: ["Renk tonunu belirler", false],
+            b: ["Elementin konumunu belirler", true],
+            c: ["Font boyutunu belirler", false],
+            d: ["Animasyon hızını belirler", false]
         }
     },
     {
         soru:"4. Float özelliği ile ilgili doğru ifade hangisidir?",
 
         cevap: {
-            a: "Elementi yatayda konumlandırmak için kullanılır",
-            b: "Elementi dikeyde konumlandırmak için kullanılır",
-            c: "Sayfadaki tüm elementleri ortalar",
-            d: "Elementin zemin rengini belirler"
+            a: ["Elementi yatayda konumlandırmak için kullanılır", true],
+            b: ["Elementi dikeyde konumlandırmak için kullanılır", false],
+            c: ["Sayfadaki tüm elementleri ortalar", false],
+            d: ["Elementin zemin rengini belirler", false]
         }
     },
     {
         soru:"5. Bir elementin boyutunu ve kenar yuvarlaklığını aynı özellikle belirlemek için kullanılan CSS özelliği nedir?",
 
         cevap: {
-            a: " width",
-            b: "height",
-            c: "border-radius",
-            d: "margin",
+            a: [" width", false],
+            b: ["height", false],
+            c: ["border-radius", true],
+            d: ["margin", false]
         }
     },
     {
         soru: "6. box-shadow özelliği ne işe yarar?",
 
         cevap: {
-            a: "Bir öğenin kutusuna gölge ekler",
-            b: "Bir öğenin kenarlarına çerçeve ekler",
-            c: "Bir öğenin arka plan rengini belirler",
-            d: "Bir öğenin boyutunu belirler",
+            a: ["Bir öğenin kutusuna gölge ekler", true],
+            b: ["Bir öğenin kenarlarına çerçeve ekler", false],
+            c: ["Bir öğenin arka plan rengini belirler", false],
+            d: ["Bir öğenin boyutunu belirler", false]
 
         }
         
@@ -66,30 +66,30 @@ const CssList = [
         soru:"7 position: absolute özelliği ne işe yarar?",
 
         cevap: {
-            a: "Bir öğeyi belirli bir konumda sabitlemek için kullanılır",
-            b: "Bir öğenin normal akıştan çıkmasını sağlar",
-            c: "Bir öğenin sayfa içindeki konumunu belirler",
-            d: "Bir öğenin boyutunu ayarlamak için kullanılır",
+            a: ["Bir öğeyi belirli bir konumda sabitlemek için kullanılır", true],
+            b: ["Bir öğenin normal akıştan çıkmasını sağlar", false],
+            c: ["Bir öğenin sayfa içindeki konumunu belirler", false],
+            d: ["Bir öğenin boyutunu ayarlamak için kullanılır", false]
         }
     },
     {
-        soru: "8. box-shadow özelliği ne işe yarar?",
+        soru: "8. display-flex de çocukların arasına boşluk hangi kodla verilir ?",
 
         cevap:{
-            a: "Bir öğenin kutusuna gölge ekler",
-            b: "Bir öğenin kenarlarına çerçeve ekler.",
-            c: "Bir öğenin arka plan rengini belirler.",
-            d: "Bir öğenin boyutunu belirler",
+            a: ["Margin", false],
+            b: ["Paddin", false],
+            c: ["gap", true],
+            d: ["justify-content:", false]
         }
     },
     {
         soru:"9. CSS preprocessor nedir ?",
 
         cevap: {
-            a: "CSS'in önemli özelliklerini ekleyen bir eklenti.",
-            b: "CSS yazmayı kolaylaştıran bir dil.",
-            c: "CSS hatalarını düzeltmek için kullanılan bir araç.",
-            d: "CSS dosyalarını sıkıştıran bir program.",
+            a: ["CSS'in önemli özelliklerini ekleyen bir eklenti.", false],
+            b: ["CSS yazmayı kolaylaştıran bir dil.", true],
+            c: ["CSS hatalarını düzeltmek için kullanılan bir araç.", false],
+            d: ["CSS dosyalarını sıkıştıran bir program.", false]
         }
     },
     {
@@ -97,41 +97,12 @@ const CssList = [
 
 
         cevap: {
-            a: "Creative Style Sheet",
-            b: "Computer Style Sheet",
-            c: "Cascading Style Sheet",
-            d: "Colorful Style Sheet",
+            a: ["Creative Style Sheet", false],
+            b: ["Computer Style Sheet", false],
+            c: ["Cascading Style Sheet", true],
+            d: ["Colorful Style Sheet", false],
         }
     }
-    
-
 ]
-
-
-
-
-
-
-
-
-
-
-// Soru: C) display
-
-// Soru: B) Yüzde cinsinden daha esnek olması
-
-// Soru: B) Elementin konumunu belirler
-
-// Soru: A) Elementi yatayda konumlandırmak için kullanılır
-
-// Soru: C) border-radius
-
-// C) Sayfanın farklı cihazlara uyumlu olmasını sağlamak için kullanılır.
-
-// B) Bir öğenin normal akıştan çıkmasını sağlar.
-// A) Bir öğenin kutusuna gölge ekler.
-// B) CSS yazmayı kolaylaştıran bir dil.,
-// C) Cascading Style Sheet
-
 
 export default CssList

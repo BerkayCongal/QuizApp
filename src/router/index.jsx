@@ -6,6 +6,7 @@ import Html from "../pages/Html";
 import Css from "../pages/Css";
 import Javascript from "../pages/Javascript";
 import Accessibility from "../pages/Accessibility";
+import Scoremenu from "../pages/Scoremenu";
 export  const supabase = createClient("https://yvwzfokjdgcyvyikzzen.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2d3pmb2tqZGdjeXZ5aWt6emVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwMDkxODk5OSwiZXhwIjoyMDE2NDk0OTk5fQ.0E4nVMsEougVoDWcHppePn7ehMZPv6WgMA4pVmobZd4")
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
     {
         path:"/Accessibility",
         element:<Accessibility/>
+    },
+    {
+        path:"/scoremenu",
+        element:<Scoremenu/>
     }
 ])
 
