@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import System from "../pages/Desingsystem";
 import Menu from "../pages/Menu";
-import { createClient } from "@supabase/supabase-js";
 import Html from "../pages/Html";
 import Css from "../pages/Css";
 import Javascript from "../pages/Javascript";
 import Accessibility from "../pages/Accessibility";
 import Scoremenu from "../pages/Scoremenu";
-export  const supabase = createClient("https://yvwzfokjdgcyvyikzzen.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2d3pmb2tqZGdjeXZ5aWt6emVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwMDkxODk5OSwiZXhwIjoyMDE2NDk0OTk5fQ.0E4nVMsEougVoDWcHppePn7ehMZPv6WgMA4pVmobZd4")
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+
+
 export const router = createBrowserRouter([
     {
         path:"/",
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
     {
         path:"/scoremenu",
         element:<Scoremenu/>
+    },
+    {
+        path:"/girisyap",
+        element: <Login/>
+    },
+    {
+        path:"/uyeol",
+        element:<Signup/>
     }
 ])
 
