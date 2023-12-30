@@ -20,8 +20,8 @@ export default function Login() {
         })
         if(!error) {
             console.log(data);
-            navigate("/")
-            alert("Hattalı giriş yapıldıu")
+            // navigate("/")
+            alert("Hattalı giriş yapıldı")
             
         }
 

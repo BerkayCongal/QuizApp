@@ -20,7 +20,7 @@ export default function Signup() {
            }
         })
         if (!error) {
-           navigate("/") 
+           navigate("/girisyap") 
            console.log(data);
         }
 
@@ -36,7 +36,7 @@ export default function Signup() {
                     <form onSubmit={handleSignup} className="signup-from">
                         <input type="text"  name="name" placeholder="Adınız" required/>
                         <input type="text" name="email" placeholder="E-posta" required />
-                        <input type="password" name="password"  placeholder="Şifreniz" required/>
+                        <input type="password" name="password"  placeholder="Şifreniz" required />
                         <button>Üye Ol</button>
                     </form>
                 </div>
