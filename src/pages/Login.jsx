@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../main";
 import { useState } from "react";
+import Darknight from '../components/Darknight';
 
 export default function Login() {
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("");
+    const  [panel,setPanel ] = useState(false);
 
     const navigate = useNavigate()
 
@@ -20,32 +22,38 @@ export default function Login() {
         })
         if(!error) {
             console.log(data);
-            // navigate("/")
-            alert("Hattalı giriş yapıldı")
+            navigate("/")
             
+            
+        }else{
+            alert("Hattalı giriş yapıldı tekrar deneyin")
         }
 
         console.log(data);
     }
 
-
     const handleChange =(e) => {
         setPassword(e.target.value)
-       }
+    }
    
-
-    
-
+    function drknghPanel() {
+        setPanel(!panel)
+    }
 
     return(
         <>
-            <div className="container-login">
+            <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
                 <div className="login-main">
+                    <div className="dark-login">
+                    <Darknight onChange={() => drknghPanel()}/>
+                    </div>
+                        
                     <form onSubmit={handleLogin} className="login-form">
+                        <h2  className="" style={panel ? {color: "white" } : {color: "var(--clr-pink)"} }>Giriş Yap</h2>
                         <input type="text" name="email" placeholder="E-posta"/>
                         <input type="password"  name="password" placeholder="Şifre"onChange={handleChange} />
-                        <button>Oturmu aç</button>
-                        <button>Üye Ol</button>
+                        <button className="btn">Oturmu aç</button>
+                        <button className="btn">Üye Ol</button>
                     </form>
                 </div> 
             </div>

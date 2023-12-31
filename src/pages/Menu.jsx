@@ -3,9 +3,15 @@ import { useState } from 'react';
 import Darknight from '../components/Darknight';
 
 
-export default function Menu() {
-    const  [panel,setPanel ] = useState(false)
 
+
+export default function Menu() {
+    const  [panel,setPanel ] = useState(false);
+    const isLocation = location.pathname === "/uyeol"
+
+
+    
+    if(isLocation ) return
 
     useEffect(()=>{
         localStorage.trueQuestionsNumber = 0
@@ -15,7 +21,9 @@ export default function Menu() {
         setPanel(!panel)
     }
 
+
     return(
+        
         <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
             <div className='menü-container'>
                 <div className= {panel ? "dark" : "night"}  >

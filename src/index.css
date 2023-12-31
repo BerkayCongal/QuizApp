@@ -471,3 +471,52 @@
     margin-bottom: 10px;
    }
 }
+
+
+/* ------------Login---------------- */
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    margin: auto;
+    gap: 10px;
+
+    & h2 {
+        text-align: center;
+        padding: 12px;
+        font-family: var(--ff-raleway);
+        font-size: 45px;
+        font-weight: 300;
+        font-style: normal;
+        line-height: 100%;
+        color: var(--clr-pink);
+    }
+
+    & input {
+        border-radius: 12px;
+        padding: 12px;
+        border: 2px solid var(--clr-pink);
+    }
+    
+    & input:hover {
+        border: 2px solid var(--clr-pink);
+    }
+
+    & input:focus  {
+        outline: 2px solid var(--clr-openpink);
+    }
+
+    & button {
+       font-size: 18px; 
+       padding: 25px;
+    }
+    
+}
+
+.dark-login {
+    text-align: end;
+    padding: 24px;
+}
