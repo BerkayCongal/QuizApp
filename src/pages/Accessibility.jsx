@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Darknight from '../components/Darknight';
 import dataAcces from "../components/Accesdata";
-
 import Scoremenu from "./Scoremenu";
 
 export default function Accessibility() {
@@ -23,7 +22,6 @@ export default function Accessibility() {
 
     useEffect(() => {
         setarialSelect([null, null, null,  null]);
-        location.trueQuestionsNumber = 0
     }, [question]);
 
     function questionHandle() {
@@ -31,13 +29,15 @@ export default function Accessibility() {
         if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
         if (arialSelect.every(val => val === null)) return
         
-        //  some--- birden fazla true kosula bakıyor
-        // every eger bir  true kosul saglıyorsa false cıkıyor
+        //  some--- bir tane dogru kosul varsa geciyor
+        // every ---- hepsi dogru olursa geciyor
 
         setQuestion(function(prev) {
             return prev + 1
         })
     }
+
+
     
 
     // onClick={(e)=>clickEvent(e,0)} burdakı sıfır datadaki cevapların indexx sayısı 0 a oluyor
@@ -52,7 +52,7 @@ export default function Accessibility() {
 
     console.log(arialSelect);
 
-    if (question === dataAcces.length) return <Scoremenu whichQuiz={"accesibility"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === dataAcces.length) return <Scoremenu whichQuiz={"Accesibility"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
 
     const accesQuiz = dataAcces.map((x,i)=> {
         if(i !== question) return;
@@ -69,8 +69,11 @@ export default function Accessibility() {
                         aria-selected={arialSelect[0]}  
                         data-value={x.cevap.a[1]} 
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.a[1]}>A</span>
-                        {x.cevap.a} {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.a[1]}>
+                            <span data-value={x.cevap.a[1]}>A</span>
+                            {x.cevap.a} 
+                        </div>
+                      {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -78,8 +81,11 @@ export default function Accessibility() {
                         aria-selected={arialSelect[1]} 
                         data-value={x.cevap.b[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.b[1]} >B</span>
-                        {x.cevap.b}  {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.b[1]} >
+                            <span data-value={x.cevap.b[1]} >B</span>
+                            {x.cevap.b}  
+                        </div>
+                         {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -87,19 +93,24 @@ export default function Accessibility() {
                         aria-selected={arialSelect[2]} 
                         data-value={x.cevap.c[1]} 
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.c[1]} >C</span>
-                        {x.cevap.c} {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.c[1]}>
+                            <span data-value={x.cevap.c[1]} >C</span>
+                            {x.cevap.c}
+                        </div>
+                       {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton" 
                         onClick={(e)=>clickEvent(e,3)} 
                         aria-selected={arialSelect[3]} 
                         data-value={x.cevap.d[1]}  
-                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}
-                        ><span data-value={x.cevap.d[1]}>D</span>
-                        {x.cevap.d}  {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <div data-value={x.cevap.d[1]}>
+                            <span data-value={x.cevap.d[1]}>D</span>
+                            {x.cevap.d} 
+                        </div>
+                      {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
-
                     <div className="system">
                         <button className="btn" onClick={questionHandle}>
                             Devam

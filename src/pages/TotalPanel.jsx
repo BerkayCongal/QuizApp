@@ -2,7 +2,7 @@ import React from 'react';
 import Darknight from '../components/Darknight';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-export default function System({trueNumber, setQuestion}) {
+export default function Panel({trueNumber, setQuestion}) {
     const  [panel,setPanel ] = useState(false)
 
 
@@ -12,32 +12,7 @@ export default function System({trueNumber, setQuestion}) {
     }
  
     return (
-        <div className="system-main">
-
-            {/* <div className="system">
-            <button className="btn">Button Hover</button>
-            </div>
-
-            <div className="seletions">
-                <button className="allbutton" aria-selected="true" ><span>A</span>Selection Idble <img  src="/src/img/True.svg" alt="" /></button>
-                <button className="allbutton" aria-selected="false"><span>A</span>Selection Idble <img  src="/src/img/False.svg" alt="" /></button>
-                <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-                <button className="allbutton"><span>A</span>Selection Idble <img src="/src/img/False.svg" alt="" /></button>
-            </div>
-
-            <div className='dark'>
-                <img src="/src/img/Suun.svg" alt="" />
-            <Darknight/>
-            <img src="/src/img/Moon.svg" alt="" />
-
-            </div>
-
-            <div className='night'>
-                <img src="/src/img/Suun.svg" alt="" />
-            <Darknight/>
-            <img src="/src/img/Moon.svg" alt="" />
-            </div> */}
-            
+        <div className="system-main">            
         <div className='quiz-soon'>
             <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
                 <div className='menü-container'>
@@ -59,7 +34,7 @@ export default function System({trueNumber, setQuestion}) {
                         <div className='quiz'>
                         <h2 className='quiz-html' > <img src={`/src/img${location.pathname}.svg`} alt="" />HTML</h2>
                         <h1>{trueNumber}</h1>
-                        <p>10 / {trueNumber} tane bildiginiz</p>
+                        <p>10 / {trueNumber} Tane bildiginiz</p>
                         </div>
                     </div>
                     <div className='btn-try'>

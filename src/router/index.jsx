@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import System from "../pages/Desingsystem";
+import Panel from "../pages/TotalPanel";
 import Menu from "../pages/Menu";
 import Html from "../pages/Html";
 import Css from "../pages/Css";
@@ -16,8 +16,8 @@ export const router = createBrowserRouter([
         element:<Menu/>
     },
     {
-        path:"/system",
-        element: <System/>
+        path:"/totalpanel",
+        element: <Panel/>
     },
     {
         path:"/html",

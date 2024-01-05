@@ -33,7 +33,6 @@ export default function Html(){
     }
 
     console.log(question);
-
     console.log(arialSelect);
 
     if (question === htmlList.length) return <Scoremenu whichQuiz={"Html"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
@@ -52,8 +51,11 @@ export default function Html(){
                         aria-selected={arialSelect[0]}  
                         data-value={x.cevap.a[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.a[1]}>A</span>
-                        {x.cevap.a} {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.a[1]}>
+                            <span data-value={x.cevap.a[1]}>A</span>
+                            {x.cevap.a}
+                        </div>
+                      {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -61,8 +63,11 @@ export default function Html(){
                         aria-selected={arialSelect[1]} 
                         data-value={x.cevap.b[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.b[1]}>B</span>
-                        {x.cevap.b}  {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.b[1]}>
+                            <span data-value={x.cevap.b[1]}>B</span>
+                            {x.cevap.b}
+                        </div>
+                        {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -70,17 +75,23 @@ export default function Html(){
                         aria-selected={arialSelect[2]} 
                         data-value={x.cevap.c[1]} 
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.c[1]}>C</span>
-                        {x.cevap.c} {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.c[1]}>
+                            <span data-value={x.cevap.c[1]}>C</span>
+                            {x.cevap.c}
+                        </div>
+                     {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton" 
                         onClick={(e)=>clickEvent(e,3)} 
                         aria-selected={arialSelect[3]} 
                         data-value={x.cevap.d[1]}  
-                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}
-                        ><span data-value={x.cevap.d[1]}>D</span>
-                        {x.cevap.d}  {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <div data-value={x.cevap.d[1]}>
+                            <span data-value={x.cevap.d[1]}>D</span>
+                            {x.cevap.d} 
+                        </div>
+                      {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                 <div className="system">
@@ -98,8 +109,8 @@ export default function Html(){
         setPanel(!panel)
     }
     return(
-        <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
-            <div className='menü-container'>
+        <div className="container"style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}} >
+            <div className='menü-container' >
                 <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
                     <div className="quiz-html">
                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/Html.svg" alt="" />HTML</h1>

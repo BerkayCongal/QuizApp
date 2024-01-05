@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../main";
 import { useState } from "react";
 import Darknight from '../components/Darknight';
@@ -49,11 +49,11 @@ export default function Login() {
                     </div>
                         
                     <form onSubmit={handleLogin} className="login-form">
-                        <h2  className="" style={panel ? {color: "white" } : {color: "var(--clr-pink)"} }>Giriş Yap</h2>
-                        <input type="text" name="email" placeholder="E-posta"/>
-                        <input type="password"  name="password" placeholder="Şifre"onChange={handleChange} />
+                        <h2 style={panel ? {color: "white" } : {color: "var(--clr-pink)"}}>Giriş Yap</h2>
+                        <input type="text" name="email" placeholder="E-posta"required  />
+                        <input type="password"  name="password" placeholder="Şifre"onChange={handleChange} required autocomplete="off" />
                         <button className="btn">Oturmu aç</button>
-                        <button className="btn">Üye Ol</button>
+                        <Link to={"/uyeol"}><button className="btn"> Üye Ol</button></Link>
                     </form>
                 </div> 
             </div>

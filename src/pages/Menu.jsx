@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Darknight from '../components/Darknight';
-
-
+import { supabase } from '../main';
 
 
 export default function Menu() {
     const  [panel,setPanel ] = useState(false);
     const isLocation = location.pathname === "/uyeol"
+    const navigate = useNavigate()
 
-
-    
     if(isLocation ) return
 
     useEffect(()=>{
         localStorage.trueQuestionsNumber = 0
+        async function getUser(){
+            
+        const { data, error } = await supabase.auth.getSession()
+
+            if(data.session === null){
+                navigate("/uyeol")
+                console.log("1asdasdsad");
+            }
+        }
+        getUser()
+    
     },[])
 
     function drknghPanel() {
@@ -25,7 +35,7 @@ export default function Menu() {
     return(
         
         <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
-            <div className='menü-container'>
+            <div className='menü-container' >
                 <div className= {panel ? "dark" : "night"}  >
                      <img src="/src/img/Suun.svg" alt="" />
                      <Darknight onChange={() => drknghPanel()}/>

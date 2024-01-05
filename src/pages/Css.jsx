@@ -32,7 +32,7 @@ export default function Css() {
     console.log(question);
     console.log(arialSelect);
 
-    if (question === CssList.length) return <Scoremenu whichQuiz={"css"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === CssList.length) return <Scoremenu whichQuiz={"Css"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
 
 
     const cssQuiz = CssList.map((x,i)=> {
@@ -49,8 +49,11 @@ export default function Css() {
                         aria-selected={arialSelect[0]}  
                         data-value={x.cevap.a[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.a[1]}>A</span>
-                        {x.cevap.a} {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.a[1]}  >
+                            <span data-value={x.cevap.a[1]}>A</span>
+                            {x.cevap.a}
+                         </div>
+                        {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -58,8 +61,11 @@ export default function Css() {
                         aria-selected={arialSelect[1]} 
                         data-value={x.cevap.b[1]}  
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span  data-value={x.cevap.b[1]} >B</span>
-                        {x.cevap.b}  {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.b[1]}>
+                            <span data-value={x.cevap.b[1]} >B</span>
+                            {x.cevap.b} 
+                        </div>
+                        {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -67,17 +73,23 @@ export default function Css() {
                         aria-selected={arialSelect[2]} 
                         data-value={x.cevap.c[1]} 
                         style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
-                        <span data-value={x.cevap.c[1]}>C</span>
-                        {x.cevap.c} {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        <div data-value={x.cevap.c[1]} >
+                            <span data-value={x.cevap.c[1]}>C</span>
+                            {x.cevap.c} 
+                        </div>
+                       {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                     <button className="allbutton" 
                         onClick={(e)=>clickEvent(e,3)} 
                         aria-selected={arialSelect[3]} 
                         data-value={x.cevap.d[1]}  
-                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}
-                        ><span data-value={x.cevap.d[1]} >D</span>
-                        {x.cevap.d}  {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                        style={ panel ?  {backgroundColor: "var(--clr-nav)",color: "var(--clr-white"} : {backgroundColor: "var(--clr-white)",color: "var(--clr-nav"}}>
+                        <div data-value={x.cevap.d[1]} >
+                            <span data-value={x.cevap.d[1]} >D</span>
+                            {x.cevap.d} 
+                        </div>
+                      {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
 
                 <div className="system">
