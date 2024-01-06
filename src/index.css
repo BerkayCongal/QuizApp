@@ -293,7 +293,9 @@
 
 
 @media (width < 769px) {
-    
+    body {
+        height: 100% !important;
+    }
     .sections-btn {
         flex-direction: column;
         justify-content: center;
@@ -577,7 +579,7 @@
 @media (width < 529px) {
    
     .menü-container {
-        height: 100vh;
+        height: 100%;
     }
 
     .night {
@@ -654,6 +656,10 @@
         & h1 {
             font-size: 18px;
         }
+    }
+
+    .Accesibility {
+        font-size: 14px;
     }
 
     
