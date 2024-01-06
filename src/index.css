@@ -11,6 +11,7 @@
 
   #root {
     height: 100%;
+    width: 100%;
   }
  
   body {
@@ -215,17 +216,10 @@
 }
 
 .menü-container {
+    padding-inline: 12px;
     /* background-image: url(/src/img/darkbackimg.svg);
     background-color: var(--clr-lightwht); 
     height: 100vh; */
-    
-    & .night {
-    display: flex;
-    width: 80%;
-    justify-content: end;
-    padding-block: 74px;
-    margin: auto;
-    }
 }
 
 .sections-btn {
@@ -567,19 +561,60 @@
 
 
 
+.system {
+
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
 
 /* -----------media------------- */
 
 
+@media (width < 529px) {
+   
+    .menü-container {
+        height: 100vh;
+    }
+
+    .night {
+        width: 100%;
+
+    }
+
+    .dark {
+        width: 100%;
+    }
+
+    .quiz-question {
+        width: 100%;
+    }
+
+    .seletions {
+        width: 100%;
+        padding-inline: 12px;
+
+       & .allbutton {
+        width: 100%;
+       }
+
+       & .btn {
+        width: 100%;
+       }
+    }
+}
 
 @media (width < 769px) {
 
     .container {
         width: 100%;
-        height: 100%;
+        /* height: 100%; */
     }
 
-    
     .sections-btn {
         flex-direction: column;
         justify-content: center;
@@ -587,13 +622,28 @@
     }
 }
 
-
 @media (width < 487px) {
-        .container {
+
+    .menü-container {
+        
+
+        & .night {
             width: 100%;
-            height: 100vh;
         }
 
+        & .dark {
+            width: 100%;
+        }
+    }
+
+    .login-form {
+        padding-inline: 12px;
+        width: 100%;
+
+         & button {
+            width: 100%;
+        }
+    }
         .selected-container {
             width: 100%;
             gap: 10px;

@@ -7,6 +7,8 @@ export default function Html(){
     const [panel,setPanel ] = useState(false);
     const [question, setQuestion] = useState(0)
     const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
+    const [errorMsj, seterrorMsj] = useState('');
+
     
     // a[0] = title,
     // a[1] = true, false
@@ -24,9 +26,16 @@ export default function Html(){
 
     function questionHandle() {
         localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
-        if (arialSelect.every(val => val === null)) return
+        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        if (arialSelect.every(x => x === null)) {
+            seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
+            setarialSelect(arialSelect);
+            return
+        }
 
+        if(arialSelect !== null) {
+            seterrorMsj("")
+        }
         setQuestion(function(prev) {
             return prev + 1
         })
@@ -39,10 +48,12 @@ export default function Html(){
 
     const htmlQuiz = htmlList.map((x, i) => {
         if(i !== question ) return
+
+
         return(
           <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
-                    <p> Soru : {question + 1} / 9</p>
+                    <p> Soru : {question + 1} / 10</p>
                     <h3> {x.soru}</h3>
                 </div>
                 <div className="seletions">
@@ -98,6 +109,7 @@ export default function Html(){
                     <button className="btn" onClick={questionHandle}>
                         Devam
                     </button>
+                    {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src="/src/img/False.svg" alt="" /> </p>}
                 </div>
             </div>
           </React.Fragment>

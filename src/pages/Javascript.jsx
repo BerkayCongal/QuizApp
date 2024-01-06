@@ -8,6 +8,8 @@ export default function Javascript() {
      const  [panel,setPanel ] = useState(false);
      const [question, setQuestion] = useState(0)
      const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
+    const [errorMsj, seterrorMsj] = useState('');
+
 
 
 
@@ -19,13 +21,21 @@ export default function Javascript() {
 
     useEffect(() => {
         setarialSelect([null, null, null,  null]);
-        location.trueQuestionsNumber = 0
     }, [question]);
 
      function questionHandle() {
         localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
-        if (arialSelect.every(val => val === null)) return
+        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+       
+        if (arialSelect.every(x => x === null)) {
+            seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
+            setarialSelect(arialSelect);
+            return
+        }
+
+        if(arialSelect !== null) {
+            seterrorMsj("")
+        }
 
         setQuestion(function(prev) {
             return prev + 1
@@ -40,7 +50,7 @@ export default function Javascript() {
 
         const jsQuiz = datajs.map((x,i) => {
         if(i !== question) return;
- console.log(x.cevap.a);
+        console.log(x.cevap.a);
         return(
             <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
@@ -100,6 +110,7 @@ export default function Javascript() {
                     <button className="btn" onClick={questionHandle}>
                         Devam
                     </button>
+                    {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src="/src/img/False.svg" alt="" /> </p>}
                 </div>
             </div>
           </React.Fragment>
@@ -113,7 +124,6 @@ export default function Javascript() {
         setPanel(!panel)
     }
     return(
-        <div>
             <div className="container"style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}} >
             <div className='menü-container' >
                 <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
@@ -130,7 +140,6 @@ export default function Javascript() {
                     {jsQuiz}
                 </div>
             </div>
-        </div>
         </div>
     )
 }

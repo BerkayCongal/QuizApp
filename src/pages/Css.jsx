@@ -7,6 +7,8 @@ export default function Css() {
     const [panel,setPanel ] = useState(false);
     const [question, setQuestion] = useState(0)
     const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
+    const [errorMsj, seterrorMsj] = useState('');
+
 
     const clickEvent = (e,id) => {
         const newArray = [...arialSelect];
@@ -16,13 +18,20 @@ export default function Css() {
 
     useEffect(() => {
         setarialSelect([null, null, null,  null]);
-        location.trueQuestionsNumber = 0
     }, [question]);
 
     function questionHandle() {
         localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
-        if (arialSelect.every(val => val === null)) return
+        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        if (arialSelect.every(x => x === null)) {
+            seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
+            setarialSelect(arialSelect);
+            return
+        }
+
+        if(arialSelect !== null) {
+            seterrorMsj("")
+        }
 
         setQuestion(function(prev) {
             return prev + 1
@@ -96,6 +105,8 @@ export default function Css() {
                     <button className="btn" onClick={questionHandle}>
                         Devam
                     </button>
+                    {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src="/src/img/False.svg" alt="" /> </p>}
+
                 </div>
             </div>
             </React.Fragment>

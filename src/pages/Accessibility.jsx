@@ -7,6 +7,7 @@ export default function Accessibility() {
     const  [panel,setPanel ] = useState(false);
     const [question, setQuestion] = useState(0);
     const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
+    const [errorMsj, seterrorMsj] = useState('');
 
     // a[0] = title,
     // a[1] = true, false
@@ -25,9 +26,18 @@ export default function Accessibility() {
     }, [question]);
 
     function questionHandle() {
+        
         localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(val => val === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
-        if (arialSelect.every(val => val === null)) return
+        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        if (arialSelect.every(x => x === null)) {
+            seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
+            setarialSelect(arialSelect);
+            return
+        }
+
+        if(arialSelect !== null) {
+            seterrorMsj("")
+        }
         
         //  some--- bir tane dogru kosul varsa geciyor
         // every ---- hepsi dogru olursa geciyor
@@ -36,9 +46,6 @@ export default function Accessibility() {
             return prev + 1
         })
     }
-
-
-    
 
     // onClick={(e)=>clickEvent(e,0)} burdakı sıfır datadaki cevapların indexx sayısı 0 a oluyor
     // data-value={x.cevap.a[1]}  datanin icindeki cevaba gidiyor button sırasına göre örnek a., datadaki false true degerini yakalıyor  1- eger sıfır yazsam a ini
@@ -112,9 +119,10 @@ export default function Accessibility() {
                       {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
                     </button>
                     <div className="system">
-                        <button className="btn" onClick={questionHandle}>
+                        <button className="btn"onClick={questionHandle}>
                             Devam
                         </button>
+                        {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src="/src/img/False.svg" alt="" /> </p>}
                     </div>
                 </div>
             </React.Fragment>
