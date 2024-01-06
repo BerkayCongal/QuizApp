@@ -11,7 +11,6 @@
 
   #root {
     height: 100%;
-    width: 100%;
   }
  
   body {
@@ -61,7 +60,7 @@
 
 .btn {
 
-    width: 500px;
+    width: 300px;
     font-family: var(--ff-rubik);
     font-size: 22px;
    background-color: var(--clr-pink);
@@ -442,22 +441,22 @@
     text-align: start;
     width: 100%;
     padding-inline: 30px;
-    
-    & .quiz-clp{
-        
-        font-family: var(--ff-raleway);
-        font-size: 64px;
-        font-weight: 300;
-        font-style: normal;
-        line-height: 100%;
-    }
+}
 
-    & .quiz-finish {
-        font-size: 64px;
-        line-height: 100%;
-        font-weight: 300;
-        font-family: var(--ff-rubik);
-    }
+.quiz-clp{
+        
+    font-family: var(--ff-raleway);
+    font-size: 64px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 100%;
+}
+
+.quiz-finish {
+    font-size: 64px;
+    line-height: 100%;
+    font-weight: 300;
+    font-family: var(--ff-rubik);
 }
 
 .btn-try {
@@ -622,6 +621,44 @@
     }
 }
 
+@media (width < 522px) {
+    .quiz {
+        width: 100%;
+
+    & h2 {
+        font-size: 18px;
+        align-items: center;
+    }
+
+     & h1 {
+        font-size: 80px;
+     }
+    }
+
+    .quiz-finish {
+        font-size: 40px;
+    }
+
+    .quiz-clp {
+        font-size: 40px;
+    }
+    
+    .btn-try {
+
+        & .btn {
+            width: 100%;
+            
+        }
+    }
+    .quiz-html {
+        & h1 {
+            font-size: 18px;
+        }
+    }
+
+    
+}
+
 @media (width < 487px) {
 
     .menü-container {
@@ -635,6 +672,8 @@
             width: 100%;
         }
     }
+
+  
 
     .login-form {
         padding-inline: 12px;

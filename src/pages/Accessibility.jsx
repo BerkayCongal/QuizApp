@@ -35,13 +35,14 @@ export default function Accessibility() {
             return
         }
 
+        //  some--- bir tane dogru kosul varsa geciyor
+        // every ---- hepsi dogru olursa geciyor
+
         if(arialSelect !== null) {
             seterrorMsj("")
         }
         
-        //  some--- bir tane dogru kosul varsa geciyor
-        // every ---- hepsi dogru olursa geciyor
-
+        
         setQuestion(function(prev) {
             return prev + 1
         })
@@ -69,6 +70,7 @@ export default function Accessibility() {
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
                         <p> Soru: {question + 1} / ∞</p>
                         <p>{x.soru}</p>
+                        {/* soru attıtırma ve bastırma */}
                     </div>
                     <div className="seletions">
                     <button  className="allbutton" 

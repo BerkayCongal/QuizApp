@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Panel from "../pages/TotalPanel";
 import Menu from "../pages/Menu";
 import Html from "../pages/Html";
 import Css from "../pages/Css";
@@ -14,10 +13,6 @@ export const router = createBrowserRouter([
     {
         path:"/",
         element:<Menu/>
-    },
-    {
-        path:"/totalpanel",
-        element: <Panel/>
     },
     {
         path:"/html",

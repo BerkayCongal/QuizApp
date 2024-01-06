@@ -10,9 +10,6 @@ export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
         setPanel(!panel)
     }
    return(
-        <>
-             <div className="score-menu">
-             <div className='quiz-soon'>
             <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
                 <div className='menü-container'>
                     <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
@@ -40,16 +37,12 @@ export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
                        <Link href="/Html" onClick={() => {
                             localStorage.trueQuestionsNumber = 0
                             setQuestion(0)
-                        }} className="btn" style={{width: "300px"}}> Tekrar Oyna</Link>
-                        <Link to={"/"} className='btn' style={{width: "300px"}}>
+                        }} className="btn" > Tekrar Oyna</Link>
+                        <Link to={"/"} className='btn' >
                             Anasayfaya dön
                         </Link>
                        </div>
                 </div>
             </div>
-            </div>
-             </div>
-
-        </>
    )
 }
