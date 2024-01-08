@@ -8,9 +8,26 @@ export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
 
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
    return(
-            <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+        <>
+         {panel ? (
+            <>
+                <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+                <img className="right" src="/src/img/Right-Dark.svg" alt="" />
+            </>
+         ):(
+            <>
+                <img className="left" src="/src/img/white-left.svg" alt="" />
+                <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+         )}
+            <div className="container">
                 <div className='menü-container'>
                     <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
                         <div className="quiz-html">
@@ -34,15 +51,12 @@ export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
                         </div>
                     </div>
                     <div className='btn-try'>
-                       <Link href="/Html" onClick={() => {
-                            localStorage.trueQuestionsNumber = 0
-                            setQuestion(0)
-                        }} className="btn" > Tekrar Oyna</Link>
-                        <Link to={"/"} className='btn' >
-                            Anasayfaya dön
-                        </Link>
-                       </div>
+                       <Link href="/Html" onClick={() => {localStorage.question = 0 , setQuestion(0)}} className="btn" > Tekrar Oyna</Link>
+
+                        <Link to={"/"}  onClick={()=> { localStorage.question = 0 , setQuestion(0) }} className='btn' >Anasayfaya dön</Link>
+                    </div>
                 </div>
             </div>
+        </>
    )
 }

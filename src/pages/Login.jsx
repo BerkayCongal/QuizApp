@@ -38,11 +38,28 @@ export default function Login() {
    
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
+    
 
     return(
         <>
-            <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+         {panel ? (
+           <>
+             <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+             <img className="right" src="/src/img/Right-Dark.svg" alt="" />  
+           </>
+        ):(
+            <>
+             <img className="left" src="/src/img/white-left.svg" alt="" />
+             <img className="right" src="/src/img/white-Right.svg" alt="" />  
+            </>
+        )}
+            <div className="container">
                 <div className="login-main">
                     <div className="dark-login">
                     <Darknight onChange={() => drknghPanel()}/>
@@ -53,7 +70,7 @@ export default function Login() {
                         <input type="text" name="email" placeholder="E-posta"required  />
                         <input type="password"  name="password" placeholder="Şifre"onChange={handleChange} required autocomplete="off" />
                         <button className="btn">Oturmu aç</button>
-                        <Link to={"/uyeol"}><button className="btn"> Üye Ol</button></Link>
+                        <Link to={"/signup"}><button className="btn"> Üye Ol</button></Link>
                     </form>
                 </div> 
             </div>

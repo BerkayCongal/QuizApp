@@ -27,8 +27,8 @@ export default function Accessibility() {
 
     function questionHandle() {
         
-        localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        localStorage.question = localStorage.question ??  0;
+        if (arialSelect.some(x => x === true)) localStorage.question = Number(localStorage.question) + 1
         if (arialSelect.every(x => x === null)) {
             seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
             setarialSelect(arialSelect);
@@ -60,11 +60,10 @@ export default function Accessibility() {
 
     console.log(arialSelect);
 
-    if (question === dataAcces.length) return <Scoremenu whichQuiz={"Accesibility"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === dataAcces.length) return <Scoremenu whichQuiz={"Accesibility"} trueNumber={localStorage.question} setQuestion={setQuestion} />
 
     const accesQuiz = dataAcces.map((x,i)=> {
         if(i !== question) return;
-       
         return(
             <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
@@ -133,9 +132,26 @@ export default function Accessibility() {
 
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
     return(
-        <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+        <>
+         {panel ? (
+           <>   
+                <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+                <img className="right" src="/src/img/Right-Dark.svg" alt="" />
+           </>
+        ):(
+            <>
+                <img className="left" src="/src/img/white-left.svg" alt="" />
+                <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+        )}
+             <div className="container">
             <div className='menü-container'>
                 <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
                     <div className="Accesibility">
@@ -152,5 +168,6 @@ export default function Accessibility() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

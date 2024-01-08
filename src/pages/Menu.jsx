@@ -13,7 +13,7 @@ export default function Menu() {
     if(isLocation ) return
 
     useEffect(()=>{
-        localStorage.trueQuestionsNumber = 0
+        localStorage.questions = 0
         async function getUser(){
             
         const { data, error } = await supabase.auth.getSession()
@@ -29,12 +29,28 @@ export default function Menu() {
 
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
 
 
     return(
-        
-        <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+        <>
+         {panel ? (
+            <>
+             <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+             <img className="right" src="/src/img/Right-Dark.svg" alt="" />  
+            </>
+         ):(
+            <>
+             <img className="left" src="/src/img/white-left.svg" alt="" />
+             <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+         )}
+          <div className="container">
             <div className='menü-container' >
                 <div className= {panel ? "dark" : "night"}  >
                      <img src="/src/img/Suun.svg" alt="" />
@@ -55,6 +71,7 @@ export default function Menu() {
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
+        </>
     )
 }

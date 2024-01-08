@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { supabase } from "../main"
 import Darknight from '../components/Darknight';
 
@@ -26,7 +26,7 @@ export default function Signup() {
            }
         })
         if (!error) {
-            navigate("/girisyap") 
+            navigate("/login") 
            console.log(data);
         }
 
@@ -35,13 +35,27 @@ export default function Signup() {
 
      function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
 
-    
-       
     return(
-        <>
-            <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
+        <>  {panel ? (
+           <>
+                <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+                <img className="right" src="/src/img/Right-Dark.svg" alt="" />
+           </>
+        ):(
+            <>   
+                <img className="left" src="/src/img/white-left.svg" alt="" />
+                <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+        )}
+            {/* style={ panel ? {backgroundColor: "#313E51"} : {backgroundColor:"#F4F6FA"}} */}
+            <div className="container">
             <div className="dark-login">
                     <Darknight onChange={() => drknghPanel()}/>
                     </div>
@@ -52,7 +66,7 @@ export default function Signup() {
                         <input type="text" name="email" placeholder="E-posta" required />
                         <input type="password" name="password"  placeholder="Şifreniz" required />
                         <button className="btn-sign" >Üye Ol</button>
-                        <p style={ panel ? {color: "white"} : {color: "var(--clr-navdrk)"}}>Hesabınız var mı? <Link style={panel ? {color: "var(--clr-openpink" }:{color: "var(--clr-pink)"}} to={"/girisyap"}>Giriş Yap</Link> </p>
+                        <p style={ panel ? {color: "white"} : {color: "var(--clr-navdrk)"}}>Hesabınız var mı? <Link style={panel ? {color: "var(--clr-openpink" }:{color: "var(--clr-pink)"}} to={"/login"}>Giriş Yap</Link> </p>
                     </form>
 
                 </div>

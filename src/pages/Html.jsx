@@ -21,12 +21,11 @@ export default function Html(){
 
     useEffect(() => {
         setarialSelect([null, null, null,  null]);
-        location.trueQuestionsNumber = 0
     }, [question]);
 
     function questionHandle() {
-        localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        localStorage.question = localStorage.question ??  0;
+        if (arialSelect.some(x => x === true)) localStorage.question = Number(localStorage.question) + 1
         if (arialSelect.every(x => x === null)) {
             seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
             setarialSelect(arialSelect);
@@ -44,12 +43,10 @@ export default function Html(){
     console.log(question);
     console.log(arialSelect);
 
-    if (question === htmlList.length) return <Scoremenu whichQuiz={"Html"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === htmlList.length) return <Scoremenu whichQuiz={"Html"} trueNumber={localStorage.question} setQuestion={setQuestion} />
 
     const htmlQuiz = htmlList.map((x, i) => {
         if(i !== question ) return
-
-
         return(
           <React.Fragment key={i}>
                 <div className="quiz-question" style={ panel ?  {color: "var(--clr-lightwht)"} : {color: "var(--clr-nav)"}}>
@@ -119,9 +116,27 @@ export default function Html(){
 
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
     return(
-        <div className="container"style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}} >
+       <>
+         {panel ? (
+            <>
+             <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+             <img className="right" src="/src/img/Right-Dark.svg" alt="" />  
+            </>
+         ):(
+            <>
+             <img className="left" src="/src/img/white-left.svg" alt="" />
+             <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+         )} 
+         {/* style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}} */}
+         <div className="container">
             <div className='menü-container' >
                 <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
                     <div className="quiz-html">
@@ -137,6 +152,7 @@ export default function Html(){
                     {htmlQuiz}
                 </div>
             </div>
-        </div>
+         </div>
+       </>
     )
 }

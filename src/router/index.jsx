@@ -36,11 +36,11 @@ export const router = createBrowserRouter([
         element:<Scoremenu/>
     },
     {
-        path:"/girisyap",
+        path:"/login",
         element: <Login/>
     },
     {
-        path:"/uyeol",
+        path:"/signup",
         element:<Signup/>
     }
 ])

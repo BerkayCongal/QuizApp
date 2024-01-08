@@ -21,8 +21,8 @@ export default function Css() {
     }, [question]);
 
     function questionHandle() {
-        localStorage.trueQuestionsNumber = localStorage.trueQuestionsNumber ??  0;
-        if (arialSelect.some(x => x === true)) localStorage.trueQuestionsNumber = Number(localStorage.trueQuestionsNumber) + 1
+        localStorage.question = localStorage.question ??  0;
+        if (arialSelect.some(x => x === true)) localStorage.question = Number(localStorage.question) + 1
         if (arialSelect.every(x => x === null)) {
             seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
             setarialSelect(arialSelect);
@@ -41,7 +41,7 @@ export default function Css() {
     console.log(question);
     console.log(arialSelect);
 
-    if (question === CssList.length) return <Scoremenu whichQuiz={"Css"} trueNumber={localStorage.trueQuestionsNumber} setQuestion={setQuestion} />
+    if (question === CssList.length) return <Scoremenu whichQuiz={"Css"} trueNumber={localStorage.question} setQuestion={setQuestion} />
 
 
     const cssQuiz = CssList.map((x,i)=> {
@@ -115,25 +115,44 @@ export default function Css() {
 
     function drknghPanel() {
         setPanel(!panel)
+        if(!panel === true) {
+            document.body.style.backgroundColor="#313E51"
+        }else {
+            document.body.style.backgroundColor="#F4F6FA"
+        }
     }
    
+    
     return(
-        <div className="container" style={ panel ? {backgroundColor: "#313E51"} : {backgroundImage:"url(/src/img/back.svg)"}}>
-            <div className='menü-container'>
-                <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
-                    <div className="quiz-css">
-                       <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/css.svg" alt="" />Css</h1>
-                    </div> 
-                       <div className="dark-night">
-                        <img src="/src/img/Suun.svg" alt="" />
-                            <Darknight onChange={() => drknghPanel()}/>
-                            <img src="/src/img/Moon.svg" alt="" />
-                       </div>
-                </div>
-                <div className='sections-btn'>
-                    {cssQuiz}
+        <>
+          {panel ? (
+           <>
+             <img className="left" src="/src/img/Left-Dark.svg" alt="" />
+             <img className="right" src="/src/img/Right-Dark.svg" alt="" />  
+           </>
+        ):(
+            <>
+                <img className="left" src="/src/img/white-left.svg" alt="" />
+                <img className="right" src="/src/img/white-Right.svg" alt="" />
+            </>
+        )}
+            <div className="container">
+                <div className='menü-container'>
+                    <div className= {panel ? "dark" : "night"}  style={{display: "flex",justifyContent: "space-between", margin: "auto"}} >
+                        <div className="quiz-css">
+                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/css.svg" alt="" />Css</h1>
+                        </div> 
+                        <div className="dark-night">
+                            <img src="/src/img/Suun.svg" alt="" />
+                                <Darknight onChange={() => drknghPanel()}/>
+                                <img src="/src/img/Moon.svg" alt="" />
+                        </div>
+                    </div>
+                    <div className='sections-btn'>
+                        {cssQuiz}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
