@@ -4,8 +4,9 @@ import { useState } from "react";
 import Darknight from '../components/Darknight';
 
 export default function Login() {
-    const [password, setPassword] = useState("");
     const  [panel,setPanel ] = useState(false);
+    const [showPassword, setShowPassword] = useState(false)
+    const [password, setPassword] = useState("");
 
     const navigate = useNavigate()
 
@@ -44,6 +45,13 @@ export default function Login() {
             document.body.style.backgroundColor="#F4F6FA"
         }
     }
+
+    const handleToggleShow =(e) => {
+        setPassword(e.target.value)
+    }
+    const handleToggleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
     
 
     return(
@@ -68,7 +76,10 @@ export default function Login() {
                     <form onSubmit={handleLogin} className="login-form">
                         <h2 style={panel ? {color: "white" } : {color: "var(--clr-pink)"}}>Giriş Yap</h2>
                         <input type="text" name="email" placeholder="E-posta"required  />
-                        <input type="password"  name="password" placeholder="Şifre"onChange={handleChange} required autocomplete="off" />
+                        <div className="input-show">
+                        <input  name="password" type={showPassword ? "text" : "password"}  value={password} onChange={handleToggleShow}  placeholder="Şifreniz" required  autocomplete="off"/>
+                        <img src="/src/img/show.svg" onClick={handleToggleShowPassword}></img>
+                        </div>
                         <button className="btn">Oturmu aç</button>
                         <Link to={"/signup"}><button className="btn"> Üye Ol</button></Link>
                     </form>

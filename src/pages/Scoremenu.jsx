@@ -44,17 +44,19 @@ export default function Scoremenu({whichQuiz,trueNumber, setQuestion}) {
                         <h1 className='quiz-clp'>Quiz Tamamlandı</h1>
                         <h1 className='quiz-finish'>Sonucunuz...</h1>
                         </div>
+                        <div className='score-menü'> 
                         <div className='quiz'>
                         <h2 className='quiz-html' > <img src={`/src/img/${whichQuiz}.svg`} alt="" />{whichQuiz}</h2>
                         <h1>{trueNumber}</h1>
                         <p>10 / {trueNumber} tane bildiginiz</p>
                         </div>
+                        <div className='btn-try'>
+                            <Link href="/Html" onClick={() => {localStorage.question = 0 , setQuestion(0)}} className="btn" > Tekrar Oyna</Link>
+                            <Link to={"/"}  onClick={()=> { localStorage.question = 0 , setQuestion(0) }} className='btn' >Anasayfaya dön</Link>
+                        </div>
+                        </div>
                     </div>
-                    <div className='btn-try'>
-                       <Link href="/Html" onClick={() => {localStorage.question = 0 , setQuestion(0)}} className="btn" > Tekrar Oyna</Link>
-
-                        <Link to={"/"}  onClick={()=> { localStorage.question = 0 , setQuestion(0) }} className='btn' >Anasayfaya dön</Link>
-                    </div>
+                   
                 </div>
             </div>
         </>

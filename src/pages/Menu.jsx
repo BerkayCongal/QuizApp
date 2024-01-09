@@ -19,7 +19,7 @@ export default function Menu() {
         const { data, error } = await supabase.auth.getSession()
 
             if(data.session === null){
-                navigate("/uyeol")
+                navigate("/signup")
                 console.log("1asdasdsad");
             }
         }
