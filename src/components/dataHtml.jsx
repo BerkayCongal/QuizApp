@@ -90,6 +90,16 @@ const htmlList = [
         c: ["<input type=password >", true],
         d:["pass", false,]
     }
+ },
+ {
+   soru: "10- HTML'de bir form elemanının değerini belirtmek için kullanılan özellik nedir? ",
+
+   cevap: {
+      a:["value", true],
+      b:["text", false],
+      c:["content", false],
+      d:["input", false],
+   }
  }
  
 ]

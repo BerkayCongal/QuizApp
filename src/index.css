@@ -9,6 +9,10 @@
     box-sizing: border-box;
   }
 
+html {
+    scroll-behavior: smooth;
+}
+
   #root {
     height: 100%;
   }
@@ -219,6 +223,7 @@
     justify-content: end;
     padding-block: 74px;
     margin: auto;
+    gap: 12px;
 }
 
 .sections-btn {
@@ -539,7 +544,7 @@
     & button {
        font-size: 18px; 
        padding: 25px;
-       transition: 10ms all;
+       transition: all 200ms;
     }
 }
 
@@ -566,14 +571,14 @@
    text-decoration: none;
    opacity: 1; 
    background: linear-gradient(193deg, var(--clr-pink), transparent);
-   transition: 10ms all;
+   transition: all 200ms;
    cursor: pointer;
 
 }
 
 .btn-sign:hover{
     background: linear-gradient(175deg, var(--clr-pink), transparent);
-    /* transform: translate(93px, 0px); */
+    transition: all 200ms;
 }
 
 .system {
@@ -752,4 +757,3 @@
             }
         }
 }
-

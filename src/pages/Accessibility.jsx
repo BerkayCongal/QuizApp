@@ -2,20 +2,33 @@ import React, { useState, useEffect } from "react"
 import Darknight from '../components/Darknight';
 import dataAcces from "../components/Accesdata";
 import Scoremenu from "./Scoremenu";
+import darkleft from "/src/img/Left-Dark.svg";
+import darkright from "/src/img/Right-Dark.svg";
+import whiteleft from "/src/img/white-left.svg";
+import whiteright from "/src/img/white-Right.svg";
+import True from "/src/img/True.svg";
+import False from "/src/img/False.svg"
+import accesibility  from "/src/img/accesibility.svg"
+import sun from "/src/img/Suun.svg" ;
+import moon from "/src/img/Moon.svg";
 
 export default function Accessibility() {
     const  [panel,setPanel ] = useState(false);
     const [question, setQuestion] = useState(0);
     const [arialSelect, setarialSelect] = useState([null, null, null,  null]);
     const [errorMsj, seterrorMsj] = useState('');
+    const [check, setCheck ] = useState(false);
 
     // a[0] = title,
     // a[1] = true, false
 
     // i == datada kacıncı indexte oldugunu belirtir
 
-
     const clickEvent = (e,id) => {
+        if(check === true) {
+            return
+        }
+        setCheck(true);
         const newArray = [...arialSelect];
         newArray[id] = e.target.dataset.value === "true";
         setarialSelect(newArray);
@@ -26,14 +39,22 @@ export default function Accessibility() {
     }, [question]);
 
     function questionHandle() {
-        
         localStorage.question = localStorage.question ??  0;
         if (arialSelect.some(x => x === true)) localStorage.question = Number(localStorage.question) + 1
         if (arialSelect.every(x => x === null)) {
+           setTimeout(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+           }, 100);
             seterrorMsj("Lütfen Soruyu Cevaplayiniz !")
             setarialSelect(arialSelect);
             return
         }
+
+        setCheck(false);
+
+        // sonra soru icin state sıfırlıyoruz 
+
+
 
         //  some--- bir tane dogru kosul varsa geciyor
         // every ---- hepsi dogru olursa geciyor
@@ -42,6 +63,7 @@ export default function Accessibility() {
             seterrorMsj("")
         }
         
+       
         
         setQuestion(function(prev) {
             return prev + 1
@@ -81,7 +103,7 @@ export default function Accessibility() {
                             <span data-value={x.cevap.a[1]}>A</span>
                             {x.cevap.a} 
                         </div>
-                      {arialSelect[0] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                      {arialSelect[0] ? (<img  src={True} alt="" />) : (<img  src={False} alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -93,7 +115,7 @@ export default function Accessibility() {
                             <span data-value={x.cevap.b[1]} >B</span>
                             {x.cevap.b}  
                         </div>
-                         {arialSelect[1] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                         {arialSelect[1] ? (<img  src={True} alt="" />) : (<img  src={False} alt="" />)}
                     </button>
 
                     <button className="allbutton"
@@ -105,7 +127,7 @@ export default function Accessibility() {
                             <span data-value={x.cevap.c[1]} >C</span>
                             {x.cevap.c}
                         </div>
-                       {arialSelect[2] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                       {arialSelect[2] ? (<img  src={True} alt="" />) : (<img  src={False} alt="" />)}
                     </button>
 
                     <button className="allbutton" 
@@ -117,13 +139,13 @@ export default function Accessibility() {
                             <span data-value={x.cevap.d[1]}>D</span>
                             {x.cevap.d} 
                         </div>
-                      {arialSelect[3] ? (<img  src="/src/img/True.svg" alt="" />) : (<img  src="/src/img/False.svg" alt="" />)}
+                      {arialSelect[3] ? (<img  src={True} alt="" />) : (<img  src={False} alt="" />)}
                     </button>
                     <div className="system">
                         <button className="btn"onClick={questionHandle}>
                             Devam
                         </button>
-                        {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src="/src/img/False.svg" alt="" /> </p>}
+                        {errorMsj && <p style={{color: "red"}}>{errorMsj} <img src={False} alt="" /> </p>}
                     </div>
                 </div>
             </React.Fragment>
@@ -142,13 +164,13 @@ export default function Accessibility() {
         <>
          {panel ? (
            <>   
-                <img className="left" src="/src/img/Left-Dark.svg" alt="" />
-                <img className="right" src="/src/img/Right-Dark.svg" alt="" />
+                <img  className="left" src={darkleft} alt="" />
+                <img className="right" src={darkright} alt="" />
            </>
         ):(
             <>
-                <img className="left" src="/src/img/white-left.svg" alt="" />
-                <img className="right" src="/src/img/white-Right.svg" alt="" />
+                <img className="left" src={whiteleft} alt="" />
+                <img className="right" src={whiteright} alt="" />
             </>
         )}
              <div className="container">
@@ -158,9 +180,9 @@ export default function Accessibility() {
                        <h1 style={ panel ?  {color: "var(--clr-white"} : {color: "var(--clr-nav"}}> <img src="/src/img/accesibility.svg" alt="" />Accesibility</h1>
                     </div> 
                        <div className="dark-night">
-                        <img src="/src/img/Suun.svg" alt="" />
+                        <img src={sun} alt="" />
                             <Darknight onChange={() => drknghPanel()}/>
-                            <img src="/src/img/Moon.svg" alt="" />
+                            <img src={moon} alt="" />
                        </div>
                 </div>
                 <div className='sections-btn'>

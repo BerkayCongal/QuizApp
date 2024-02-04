@@ -15,8 +15,8 @@ const dataAcces = [
         cevap:{
             a: ["Mertcan", false],
             b: ["Koray", false],
-            c: ["RTE", true],
-            d:["cihan", false],
+            c: ["Tayyip", true],
+            d: ["Cihan", false],
         }
     },
     {
