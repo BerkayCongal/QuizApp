@@ -15,6 +15,8 @@ export default function Login() {
     const  [panel,setPanel ] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
     const [password, setPassword] = useState("");
+    const [errorMsj, seterrorMsj] = useState('');
+
 
     const navigate = useNavigate()
 
@@ -33,12 +35,13 @@ export default function Login() {
             console.log(data);
             navigate("/")
             
-            
         }else{
-            alert("Hattalı giriş yapıldı tekrar deneyin")
-            navigate("/")
+            seterrorMsj("E-Posta ya da Şifre yanlış tekrar deneyin !")
         }
-
+        if(data.user === null) {
+            seterrorMsj("Erorr var")
+        }
+       
         console.log(data);
     }
 
@@ -62,7 +65,6 @@ export default function Login() {
         setShowPassword(!showPassword)
     }
     
-
     return(
         <>
          {panel ? (
@@ -79,9 +81,8 @@ export default function Login() {
             <div className="container">
                 <div className="login-main">
                     <div className="dark-login">
-                    <Darknight onChange={() => drknghPanel()}/>
-                    </div>
-                        
+                        <Darknight onChange={() => drknghPanel()}/>
+                    </div> 
                     <form onSubmit={handleLogin} className="login-form">
                         <h2 style={panel ? {color: "white" } : {color: "var(--clr-pink)"}}>Giriş Yap</h2>
                         <input type="text" name="email" placeholder="E-posta"required  />
@@ -91,6 +92,8 @@ export default function Login() {
                         </div>
                         <button className="btn">Oturmu aç</button>
                         <Link to={"/signup"}><button className="btn"> Üye Ol</button></Link>
+                        <p style={{color: "red ",marginBlock: 20}}>{errorMsj}</p>
+                        <p>{errorMsj}</p>
                     </form>
                 </div> 
             </div>

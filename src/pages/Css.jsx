@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import Darknight from '../components/Darknight';
 import CssList from "../components/datacss";
 import Scoremenu from "./Scoremenu";
-
 import darkleft from "/src/img/Left-Dark.svg";
 import darkright from "/src/img/Right-Dark.svg";
 import whiteleft from "/src/img/white-left.svg";

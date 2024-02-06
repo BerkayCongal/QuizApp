@@ -12,8 +12,9 @@ import show from "/src/img/show.svg";
 
 export default function Signup() {
     const  [panel,setPanel ] = useState(false);
-    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
+    const [errorMsj, seterrorMsj] = useState("");
 
 
     const navigate = useNavigate()
@@ -33,10 +34,18 @@ export default function Signup() {
             }
            }
         })
+        if(data.email === null) {
+            seterrorMsj("E-posta dogru")
+        }else {
+            seterrorMsj("e-posta sorunlu")
+        }
         if (!error) {
             navigate("/login") 
            console.log(data);
+        }else {
+            seterrorMsj("E-Posta ya da Şifre yanlış tekrar deneyin !")
         }
+       
 
         console.log(data);
      }
@@ -85,6 +94,7 @@ export default function Signup() {
                         </div>
                         <button className="btn-sign" >Üye Ol</button>
                         <p style={ panel ? {color: "white"} : {color: "var(--clr-navdrk)"}}>Hesabınız var mı? <Link style={panel ? {color: "var(--clr-openpink" }:{color: "var(--clr-pink)"}} to={"/login"}>Giriş Yap</Link> </p>
+                        <p style={{color: "red ",marginBlock: 20 }}>{errorMsj}</p>
                     </form>
 
                 </div>
